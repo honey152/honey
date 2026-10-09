@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>《追风筝的人》全面解析</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M32 4 56 22 32 40 8 22Z' fill='%23B0502B'/%3E%3Cpath d='M20 32 16 58l16-8 16 8-4-26' fill='none' stroke='%23B0502B' stroke-width='3' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="https://miaoda.feishu.cn/fonts/css2?family=Noto+Serif+SC:wght@400;600;700;900&amp;family=Noto+Sans+SC:wght@300;400;500;700&amp;display=swap">
+<style>
+:root{
+  --paper:#F6EEDF;
+  --paper-deep:#EDDFC6;
+  --paper-white:#FBF6EB;
+  --ink:#33261B;
+  --ink-soft:#6B5747;
+  --clay:#B0502B;
+  --clay-dark:#8F3E20;
+  --gold:#D98E2B;
+  --sky:#7E8F9B;
+  --line:#DCC9A8;
+  --shadow:0 14px 34px rgba(61,46,35,.10);
+  --serif:'Noto Serif SC',Georgia,'Songti SC','SimSun',serif;
+  --sans:'Noto Sans SC','Microsoft YaHei',system-ui,sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:var(--sans);
+  line-height:1.85;
+  font-size:16px;
+  -webkit-font-smoothing:antialiased;
+}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+::selection{background:var(--clay);color:#fff}
+
+/* ===== 顶部导航 ===== */
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:50;
+  background:rgba(246,238,223,.88);
+  backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--line);
+  transition:box-shadow .3s;
+}
+.nav-inner{
+  max-width:1140px;margin:0 auto;padding:0 24px;
+  display:flex;align-items:center;justify-content:space-between;height:60px;
+}
+.nav-brand{
+  font-family:var(--serif);font-weight:700;font-size:17px;letter-spacing:.06em;
+  display:flex;align-items:center;gap:9px;min-height:44px;
+}
+.nav-brand svg{width:20px;height:20px;flex:none}
+.nav-links{display:flex;gap:22px;font-size:14px;color:var(--ink-soft)}
+.nav-links a{position:relative;padding:4px 0;transition:color .25s}
+.nav-links a:hover{color:var(--clay)}
+.nav-links a.active{color:var(--clay-dark);font-weight:500}
+.nav-links a.active::after{
+  content:"";position:absolute;left:0;right:0;bottom:0;height:2px;
+  background:var(--clay);border-radius:2px;
+}
+
+/* ===== 通用容器 ===== */
+.wrap{max-width:1140px;margin:0 auto;padding:0 28px}
+section{padding:88px 0}
+.sec-head{margin-bottom:52px;max-width:760px}
+.kicker{
+  display:inline-flex;align-items:center;gap:12px;
+  font-size:13px;letter-spacing:.35em;color:var(--clay);
+  font-weight:500;margin-bottom:14px;
+}
+.kicker::before{content:"";width:34px;height:2px;background:var(--clay)}
+h2.title{
+  font-family:var(--serif);font-weight:900;font-size:clamp(28px,4.2vw,40px);
+  line-height:1.3;letter-spacing:.02em;
+}
+h2.title em{font-style:normal;color:var(--clay-dark)}
+.sec-sub{color:var(--ink-soft);margin-top:16px;font-size:15.5px;max-width:640px}
+.lead{font-size:17.5px;line-height:2;color:var(--ink-soft)}
+
+/* ===== Hero ===== */
+.hero{
+  position:relative;min-height:100vh;display:flex;align-items:center;
+  justify-content:center;text-align:center;color:#FBF3E4;
+  overflow:hidden;
+}
+.hero-bg{
+  position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+  filter:saturate(1.05);
+}
+.hero::after{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(38,26,18,.58) 0%,rgba(38,26,18,.30) 42%,rgba(38,26,18,.62) 100%);
+}
+.hero-inner{position:relative;z-index:2;padding:96px 24px 72px;max-width:860px}
+.hero-en{
+  font-family:var(--serif);font-style:italic;font-size:17px;letter-spacing:.42em;
+  opacity:.9;margin-bottom:26px;font-weight:400;
+}
+.hero h1{
+  font-family:var(--serif);font-weight:900;
+  font-size:clamp(44px,8.5vw,86px);line-height:1.18;letter-spacing:.1em;
+  text-shadow:0 3px 24px rgba(0,0,0,.35);
+}
+.hero-line{
+  margin:30px auto 0;font-family:var(--serif);font-size:clamp(19px,2.6vw,25px);
+  letter-spacing:.14em;font-weight:600;color:#F6D9A8;
+}
+.hero-stats{
+  display:flex;justify-content:center;gap:0;margin:52px auto 0;
+  flex-wrap:wrap;
+}
+.stat{
+  padding:0 34px;border-left:1px solid rgba(251,243,228,.25);
+  text-align:center;
+}
+.stat:first-child{border-left:none}
+.stat b{
+  display:block;font-family:var(--serif);font-weight:900;
+  font-size:clamp(26px,3.4vw,36px);color:#F8C778;
+}
+.stat span{font-size:12.5px;letter-spacing:.14em;color:rgba(251,243,228,.85);margin-top:4px;display:block}
+.hero-scroll{
+  position:absolute;bottom:30px;left:50%;transform:translateX(-50%);z-index:2;
+  width:24px;height:40px;border:2px solid rgba(251,243,228,.55);border-radius:14px;
+}
+.hero-scroll::after{
+  content:"";position:absolute;top:7px;left:50%;transform:translateX(-50%);
+  width:3px;height:8px;border-radius:3px;background:rgba(251,243,228,.8);
+  animation:scroll-dot 1.8s ease-in-out infinite;
+}
+@keyframes scroll-dot{0%,100%{opacity:1;transform:translate(-50%,0)}50%{opacity:.3;transform:translate(-50%,6px)}}
+
+/* ===== 引言 / 书籍名片 ===== */
+.intro-grid{
+  display:grid;grid-template-columns:420px 1fr;gap:56px;align-items:center;
+}
+.book-covers{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.book-covers figure{
+  background:var(--paper-white);border:1px solid var(--line);border-radius:10px;
+  padding:10px;box-shadow:var(--shadow);
+}
+.book-covers img{border-radius:6px;aspect-ratio:4/5.4;object-fit:cover;width:100%}
+.book-covers figcaption{
+  font-size:12px;color:var(--ink-soft);text-align:center;padding:10px 0 4px;letter-spacing:.12em;
+}
+.intro-text p{color:var(--ink-soft);line-height:2.05;font-size:16px}
+.intro-text p+p{margin-top:14px}
+.intro-text strong{color:var(--clay-dark);font-weight:600}
+.pub-list{margin-top:26px;display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.pub-item{
+  background:var(--paper-white);border:1px solid var(--line);border-radius:10px;
+  padding:14px 12px;text-align:center;
+}
+.pub-item b{display:block;font-family:var(--serif);font-size:19px;color:var(--clay-dark);font-weight:700}
+.pub-item span{font-size:12px;color:var(--ink-soft);letter-spacing:.04em}
+
+/* ===== 区块底图横幅 ===== */
+.banner{
+  position:relative;border-radius:16px;overflow:hidden;margin:0 0 60px;
+  box-shadow:var(--shadow);
+}
+.banner img{width:100%;height:230px;object-fit:cover}
+.banner-cap{
+  position:absolute;left:26px;bottom:18px;z-index:2;color:#FBF3E4;
+  font-family:var(--serif);font-size:21px;font-weight:700;letter-spacing:.08em;
+  text-shadow:0 2px 12px rgba(0,0,0,.5);
+}
+.banner::before{
+  content:"";position:absolute;inset:0;z-index:1;
+  background:linear-gradient(180deg,transparent 30%,rgba(38,26,18,.62) 100%);
+}
+
+/* ===== 作者 ===== */
+.author-grid{display:grid;grid-template-columns:1fr 300px;gap:52px;align-items:start}
+.author-art{
+  position:sticky;top:90px;
+}
+.author-art figure{
+  background:var(--paper-white);border:1px solid var(--line);border-radius:12px;
+  padding:12px;box-shadow:var(--shadow);
+}
+.author-art img{border-radius:8px;width:100%}
+.author-art figcaption{
+  font-size:12px;color:var(--ink-soft);text-align:center;padding:10px 0 2px;letter-spacing:.1em;
+}
+.author-block{
+  display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-bottom:26px;
+}
+.author-block:last-child{margin-bottom:0}
+.ab-card{
+  background:var(--paper-white);border:1px solid var(--line);border-radius:12px;
+  padding:24px 24px 20px;
+}
+.ab-card h4{
+  font-family:var(--serif);font-weight:700;font-size:18px;color:var(--clay-dark);
+  display:flex;align-items:center;gap:10px;margin-bottom:10px;
+}
+.ab-card h4::before{content:"";width:14px;height:2px;background:var(--gold)}
+.ab-card p{font-size:14.5px;color:var(--ink-soft);line-height:1.95}
+.author-quote{
+  margin-top:30px;background:var(--paper-deep);border-left:4px solid var(--clay);
+  border-radius:10px;padding:20px 26px;font-family:var(--serif);font-size:15.5px;
+  color:var(--ink);line-height:2;
+}
+.author-quote b{color:var(--clay-dark)}
+
+/* ===== 内容简介 ===== */
+.scene{
+  display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;
+  margin-bottom:64px;
+}
+.scene:last-child{margin-bottom:0}
+.scene-media{border-radius:14px;overflow:hidden;box-shadow:var(--shadow)}
+.scene-media img{width:100%;aspect-ratio:3/2.05;object-fit:cover;transition:transform .6s}
+.scene-media:hover img{transform:scale(1.03)}
+.scene-no{
+  font-family:var(--serif);font-weight:700;font-size:15px;color:var(--clay);
+  letter-spacing:.3em;margin-bottom:6px;
+}
+.scene-tag{
+  display:inline-block;background:var(--clay);color:#FBF3E4;font-size:12.5px;
+  letter-spacing:.12em;border-radius:999px;padding:3px 14px;margin-bottom:16px;
+}
+.scene h3{
+  font-family:var(--serif);font-weight:900;font-size:clamp(22px,2.8vw,30px);
+  margin-bottom:6px;letter-spacing:.03em;
+}
+.scene .scene-sub{font-size:14px;color:var(--clay-dark);letter-spacing:.16em;margin-bottom:16px;font-weight:500}
+.scene p{color:var(--ink-soft);font-size:15.5px;line-height:2;margin-bottom:12px}
+.scene:nth-child(even) .scene-media{order:2}
+
+/* ===== 写作背景 ===== */
+.bg-top{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;margin-bottom:72px}
+.bg-top p{color:var(--ink-soft);font-size:15.5px;line-height:2;margin-bottom:12px}
+.bg-top p:last-child{margin-bottom:0}
+.tl-wrap{
+  background:var(--paper-white);border:1px solid var(--line);border-radius:16px;
+  padding:40px 40px 24px;box-shadow:var(--shadow);
+  --t-time:108px;--t-axis:30px;
+}
+.tl-head{
+  font-family:var(--serif);font-weight:700;font-size:19px;color:var(--clay-dark);
+  margin-bottom:26px;display:flex;align-items:center;gap:10px;
+}
+.tl-head::before{content:"";width:16px;height:2px;background:var(--gold)}
+.timeline{position:relative}
+.timeline::before{
+  content:"";position:absolute;top:8px;bottom:8px;
+  left:calc(var(--t-time) + var(--t-axis)/2 - 1px);
+  width:2px;background:var(--line);border-radius:2px;
+}
+.tl-row{display:grid;grid-template-columns:var(--t-time) var(--t-axis) 1fr}
+.tl-time{
+  text-align:right;padding-right:0;padding-top:2px;
+  font-family:var(--serif);font-weight:700;color:var(--clay-dark);font-size:15px;
+}
+.tl-axis{position:relative}
+.tl-dot{
+  position:absolute;top:9px;left:50%;transform:translate(-50%,-50%);
+  width:13px;height:13px;border-radius:50%;background:var(--clay);
+  border:3px solid var(--paper-white);box-sizing:border-box;
+}
+.tl-body{padding:0 0 30px 8px}
+.tl-body h5{font-family:var(--serif);font-weight:700;font-size:16.5px;color:var(--ink);margin-bottom:4px}
+.tl-body p{font-size:14px;color:var(--ink-soft);line-height:1.9}
+
+/* ===== 人物 ===== */
+.char-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.char-card{
+  background:var(--paper-white);border:1px solid var(--line);border-radius:14px;
+  padding:26px 24px 22px;position:relative;transition:transform .3s,box-shadow .3s;
+}
+.char-card:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
+.char-idx{
+  position:absolute;top:20px;right:22px;font-family:var(--serif);
+  font-weight:700;color:var(--line);font-size:30px;
+}
+.char-card h4{font-family:var(--serif);font-weight:900;font-size:20px;margin-bottom:2px}
+.char-card .en{font-size:12.5px;color:var(--gold);letter-spacing:.14em;font-weight:500;margin-bottom:6px}
+.char-card .role{
+  font-size:12px;color:var(--clay);background:rgba(176,80,43,.1);
+  border-radius:999px;padding:2px 12px;display:inline-block;margin-bottom:12px;letter-spacing:.06em;
+}
+.char-card p{font-size:14px;color:var(--ink-soft);line-height:1.9}
+.char-card p+p{margin-top:8px}
+
+/* ===== 主题 ===== */
+.theme-row{
+  display:grid;grid-template-columns:96px 1fr;gap:30px;align-items:start;
+  padding:34px 8px;border-bottom:1px solid var(--line);
+}
+.theme-row:last-child{border-bottom:none}
+.theme-no{
+  font-family:var(--serif);font-weight:900;font-size:44px;color:var(--paper-deep);
+  line-height:1;text-align:right;position:relative;top:-4px;
+}
+.theme-row h4{font-family:var(--serif);font-weight:700;font-size:21px;color:var(--clay-dark);margin-bottom:10px}
+.theme-row p{color:var(--ink-soft);font-size:15px;line-height:2}
+.theme-with-img{
+  display:grid;grid-template-columns:300px 1fr;gap:40px;align-items:center;
+}
+.theme-with-img figure{border-radius:14px;overflow:hidden;box-shadow:var(--shadow)}
+.theme-with-img img{width:100%;aspect-ratio:4/3;object-fit:cover}
+
+/* ===== 感悟 ===== */
+.reflect-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.reflect-card{
+  background:var(--paper-white);border:1px solid var(--line);border-radius:14px;
+  padding:30px 28px 24px;position:relative;
+}
+.reflect-card::before{
+  content:"“";position:absolute;top:12px;left:20px;
+  font-family:var(--serif);font-weight:900;font-size:52px;color:var(--gold);line-height:1;
+}
+.reflect-card h4{
+  font-family:var(--serif);font-weight:700;font-size:18.5px;color:var(--clay-dark);
+  padding-left:26px;margin-bottom:12px;line-height:1.5;
+}
+.reflect-card p{font-size:14.5px;color:var(--ink-soft);line-height:2}
+
+/* ===== 结尾 ===== */
+.finale{
+  position:relative;color:#FBF3E4;text-align:center;
+  padding:140px 0 120px;overflow:hidden;
+}
+.finale-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.finale::after{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(38,26,18,.66),rgba(38,26,18,.55));
+}
+.finale-inner{position:relative;z-index:2;max-width:760px;margin:0 auto;padding:0 28px}
+.finale .en{font-family:var(--serif);font-style:italic;letter-spacing:.3em;font-size:15px;opacity:.85;margin-bottom:20px}
+.finale h2{
+  font-family:var(--serif);font-weight:900;font-size:clamp(30px,5vw,46px);
+  letter-spacing:.12em;line-height:1.4;
+}
+.finale .quote{
+  margin:34px auto 0;font-family:var(--serif);font-size:clamp(18px,2.6vw,23px);
+  color:#F6D9A8;letter-spacing:.1em;
+}
+.finale .note{
+  margin-top:60px;font-size:12.5px;color:rgba(251,243,228,.75);letter-spacing:.08em;
+}
+.finale .back-top{
+  display:inline-block;margin-top:22px;font-size:13px;letter-spacing:.2em;
+  border:1px solid rgba(251,243,228,.5);border-radius:999px;padding:9px 22px;
+  transition:background .3s,color .3s;
+}
+.finale .back-top:hover{background:#FBF3E4;color:var(--clay-dark)}
+
+footer{
+  background:var(--ink);color:rgba(251,243,228,.72);text-align:center;
+  padding:26px 20px;font-size:12.5px;letter-spacing:.1em;
+}
+
+/* ===== 滚动渐显 ===== */
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .reveal{opacity:1;transform:none;transition:none}
+  .hero-scroll::after{animation:none}
+  .scene-media img{transition:none}
+}
+
+/* ===== 响应式 ===== */
+@media (max-width:960px){
+  .intro-grid{grid-template-columns:1fr;gap:40px}
+  .book-covers{max-width:560px;margin:0 auto}
+  .author-grid{grid-template-columns:1fr;gap:36px}
+  .author-art{position:static}
+  .author-art figure{max-width:300px;margin:0 auto}
+  .bg-top{grid-template-columns:1fr;gap:36px}
+  .char-grid{grid-template-columns:1fr 1fr}
+  .theme-with-img{grid-template-columns:1fr}
+}
+@media (max-width:640px){
+  section{padding:64px 0}
+  .nav-links{display:none}
+  .stat{padding:0 18px}
+  .stat span,.pub-item span{font-size:13px}
+  .pub-list{grid-template-columns:1fr 1fr}
+  .scene{grid-template-columns:1fr;gap:24px}
+  .scene:nth-child(even) .scene-media{order:0}
+  .author-block{grid-template-columns:1fr}
+  .tl-wrap{padding:28px 18px 16px;--t-time:84px;--t-axis:26px}
+  .tl-time{font-size:13.5px}
+  .tl-body h5{font-size:15.5px}
+  .char-grid{grid-template-columns:1fr}
+  .theme-row{grid-template-columns:72px 1fr;gap:18px}
+  .theme-no{font-size:34px}
+  .reflect-grid{grid-template-columns:1fr}
+  .banner img{height:170px}
+  .banner-cap{font-size:17px;left:18px;bottom:12px}
+}
+</style>
+</head>
+<body>
+
+<!-- ===== 顶部导航 ===== -->
+<header class="nav" id="topnav">
+  <div class="nav-inner">
+    <a href="#hero" class="nav-brand">
+      <svg viewBox="0 0 64 64"><path d="M32 4 56 22 32 40 8 22Z" fill="#B0502B"/><path d="M20 32 16 58l16-8 16 8-4-26" fill="none" stroke="#B0502B" stroke-width="3" stroke-linejoin="round"/></svg>
+      追风筝的人
+    </a>
+    <nav class="nav-links">
+      <a href="#intro">书籍名片</a>
+      <a href="#author">作者</a>
+      <a href="#story">内容简介</a>
+      <a href="#background">写作背景</a>
+      <a href="#characters">主要人物</a>
+      <a href="#themes">主题思想</a>
+      <a href="#reflection">读书感悟</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ===== Hero ===== -->
+<section class="hero" id="hero">
+  <img class="hero-bg" src="assets/hero-kabul.jpg" alt="喀布尔黄昏，两个孩子在山坡上放风筝">
+  <div class="hero-inner">
+    <div class="hero-en">The Kite Runner</div>
+    <h1>追风筝的人</h1>
+    <div class="hero-line">为你，千千万万遍。</div>
+    <div class="hero-stats">
+      <div class="stat"><b>131 周</b><span>蝉联《纽约时报》畅销榜</span></div>
+      <div class="stat"><b>42 种</b><span>语言译本</span></div>
+      <div class="stat"><b>4000 万</b><span>全球销量（册）</span></div>
+      <div class="stat"><b>2003</b><span>Riverhead Books 首版</span></div>
+    </div>
+  </div>
+  <div class="hero-scroll" aria-hidden="true"></div>
+</section>
+
+<!-- ===== 引言 / 书籍名片 ===== -->
+<section id="intro">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="kicker">开篇</span>
+      <h2 class="title">一部关于<em>背叛与救赎</em>的旷世之作</h2>
+      <p class="sec-sub">《追风筝的人》（The Kite Runner）是美籍阿富汗裔作家卡勒德·胡赛尼的首部长篇小说，2003 年由美国 Riverhead Books 出版社出版。</p>
+    </div>
+    <div class="intro-grid">
+      <div class="book-covers reveal">
+        <figure>
+          <img src="assets/cover.jpg" alt="《追风筝的人》中文版封面">
+          <figcaption>中文版封面 · 上海人民出版社</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/poster.jpg" alt="同名电影海报：两个男孩望向天空的风筝">
+          <figcaption>同名改编电影海报</figcaption>
+        </figure>
+      </div>
+      <div class="intro-text reveal">
+        <p>该书一经出版便引发全球轰动，盘踞《纽约时报》畅销书榜长达 <strong>131 周</strong>，被译成 <strong>42 种语言</strong>，全球销量超 <strong>4000 万册</strong>，先后斩获《旧金山纪事报》年度最佳书籍、法国读书会年度首选书、英国“读书会年度最佳选书”等荣誉，作者也凭借此书获得 <strong>2006 年联合国人道主义奖</strong>。</p>
+        <div class="pub-list">
+          <div class="pub-item"><b>2003</b><span>首次出版</span></div>
+          <div class="pub-item"><b>42 种</b><span>语言译本</span></div>
+          <div class="pub-item"><b>131 周</b><span>畅销榜纪录</span></div>
+          <div class="pub-item"><b>2006</b><span>联合国人道主义奖</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 作者介绍 ===== -->
+<section id="author" style="background:var(--paper-deep)">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="kicker">一 · 作者介绍</span>
+      <h2 class="title">卡勒德·胡赛尼：<em>用文字为阿富汗发声的人</em></h2>
+      <p class="sec-sub">Khaled Hosseini（1965 年 3 月 4 日—），美籍阿富汗裔作家、医生、人道主义者，当代最具影响力的阿富汗主题文学创作者。</p>
+    </div>
+    <div class="author-grid">
+      <div>
+        <div class="author-block">
+          <div class="ab-card reveal">
+            <h4>出身与流亡经历</h4>
+            <p>出生于阿富汗喀布尔的上流家庭，父亲是阿富汗外交部外交官，母亲是喀布尔高中的波斯语与历史教师。1976 年随父亲派驻巴黎，1980 年因苏联入侵阿富汗，全家无法回国，转而向美国申请政治庇护，定居加州圣何塞。</p>
+          </div>
+          <div class="ab-card reveal">
+            <h4>教育与职业转型</h4>
+            <p>1988 年获圣克拉拉大学生物学学士学位，1993 年获加州大学圣地亚哥分校医学博士学位，1996 年起成为执业内科医生。2001 年开始利用业余时间创作《追风筝的人》，2003 年小说成名后弃医从文，成为专职作家。他曾将行医戏称为“包办婚姻”，写作才是真正的热爱。</p>
+          </div>
+          <div class="ab-card reveal">
+            <h4>创作脉络</h4>
+            <p>后续创作《灿烂千阳》《群山回唱》《海的祈祷》等作品，始终聚焦阿富汗的战争、流亡、创伤与救赎主题，被称为“用文字为阿富汗发声的人”。</p>
+          </div>
+          <div class="ab-card reveal">
+            <h4>人道主义事业</h4>
+            <p>担任联合国难民署亲善大使，创立卡勒德·胡赛尼基金会，长期为阿富汗难民与平民提供医疗、教育等人道主义援助。</p>
+          </div>
+        </div>
+        <div class="author-quote reveal">
+          他曾将行医戏称为“<b>包办婚姻</b>”，写作才是真正的热爱。
+        </div>
+      </div>
+      <div class="author-art reveal">
+        <figure>
+          <img src="assets/title-art.jpg" alt="竖排艺术字：追风筝的人">
+          <figcaption>题字 · 追风筝的人</figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 内容简介 ===== -->
+<section id="story">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="kicker">二 · 内容简介</span>
+      <h2 class="title">横跨三十年的<em>成长与救赎之路</em></h2>
+      <p class="sec-sub">小说以第一人称视角，讲述了主人公阿米尔横跨三十年的成长与救赎之路，故事脉络串联起阿富汗半个世纪的社会动荡。</p>
+    </div>
+    <div class="banner reveal">
+      <img src="assets/banner-plot.jpg" alt="红色背景下奔跑的剪影，追风筝的人">
+      <div class="banner-cap">童年喀布尔 · 流亡美国 · 重返故土</div>
+    </div>
+
+    <div class="scene reveal">
+      <div class="scene-media">
+        <img src="assets/childhood.jpg" alt="两个男孩背对镜头望向风筝与雪山">
+      </div>
+      <div>
+        <div class="scene-no">第一幕</div>
+        <span class="scene-tag">20 世纪 70 年代 · 喀布尔</span>
+        <h3>童年喀布尔：美好与裂痕</h3>
+        <div class="scene-sub">Golden Kabul</div>
+        <p>20 世纪 70 年代的喀布尔，富家少年阿米尔与仆人哈桑情同手足。哈桑是哈扎拉人，天生兔唇，却对阿米尔绝对忠诚，口头禅是“为你，千千万万遍”。两人常一起参加喀布尔传统的斗风筝比赛，哈桑是全城最厉害的追风筝高手。</p>
+        <p>阿米尔自幼渴望得到严厉父亲的认可，却因性格文弱、热爱写作而常被父亲失望。在一次年度风筝大赛中，阿米尔成功夺冠，哈桑去为他追回最后一只战利品风筝，却在小巷中遭遇当地恶霸阿塞夫的欺凌。阿米尔目睹了全过程，却因懦弱和嫉妒选择了袖手旁观。</p>
+        <p>这份愧疚成为他一生的心结。为了摆脱内心的煎熬，他设计诬陷哈桑偷窃，逼走了哈桑父子，也亲手埋葬了两人的友情。</p>
+      </div>
+    </div>
+
+    <div class="scene reveal">
+      <div class="scene-media">
+        <img src="assets/exile.jpg" alt="蓝白条纹衬衫的少年背影，面向层叠的山脉与橙红黄昏">
+      </div>
+      <div>
+        <div class="scene-no">第二幕</div>
+        <span class="scene-tag">1979 年 · 流亡美国</span>
+        <h3>流亡美国：安稳与阴影</h3>
+        <div class="scene-sub">Exile in California</div>
+        <p>1979 年苏联入侵阿富汗，阿米尔与父亲辗转逃亡到美国加州。父亲从昔日的富商沦为加油站工人，却依然保持着尊严与骨气；阿米尔则一边读书一边写作，逐渐适应异乡生活，后来与同为阿富汗移民的索拉雅结婚，成为一名小说家。</p>
+        <p>物质生活逐渐安稳，但童年的背叛始终像阴影一样笼罩着他。他无法真正融入美国生活，也无法与内心的愧疚和解，过去的记忆像一根刺，时刻提醒着他曾经的怯懦。</p>
+      </div>
+    </div>
+
+    <div class="scene reveal">
+      <div class="scene-media">
+        <img src="assets/return.jpg" alt="破败的街道上，男子背影立于废墟与光束之中">
+      </div>
+      <div>
+        <div class="scene-no">第三幕</div>
+        <span class="scene-tag">多年后 · 重返故土</span>
+        <h3>重返故土：救赎与重生</h3>
+        <div class="scene-sub">The Way to Be Good Again</div>
+        <p>多年后，父亲的老友拉辛汗从巴基斯坦打来电话，告诉阿米尔“这里有再次成为好人的路”。阿米尔重返战乱之地，得知了一个隐藏三十年的秘密：哈桑其实是父亲与阿里妻子的私生子，是他同父异母的弟弟。而哈桑与妻子已在塔利班统治时期，因保护阿米尔家的老宅被枪杀，留下一个儿子索拉博流落孤儿院。</p>
+        <p>为了弥补过错，阿米尔冒着生命危险深入塔利班控制区，从已是塔利班头目的阿塞夫手中救出了索拉博。历经磨难与波折后，他将索拉博带回美国，用行动完成了自我救赎。</p>
+        <p>故事结尾，阿米尔带着索拉博在草地上放风筝，对他说出了那句“为你，千千万万遍”，完成了爱与责任的代际传承。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 写作背景 ===== -->
+<section id="background" style="background:var(--paper-deep)">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="kicker">三 · 写作背景</span>
+      <h2 class="title">一则禁风筝的新闻，<em>勾起的半生回忆</em></h2>
+      <p class="sec-sub">小说中很多细节来自胡赛尼的亲身经历——流亡美国的生活落差、阿富汗的民俗风情、普什图与哈扎拉的民族矛盾，带有强烈的自传色彩。</p>
+    </div>
+    <div class="bg-top">
+      <div class="reveal">
+        <p><b style="color:var(--clay-dark)">1999 年</b>，胡赛尼在新闻中看到塔利班禁止阿富汗民众放风筝的报道，瞬间勾起了他对童年喀布尔生活的回忆——他和兄弟在冬天放风筝、在电影院看西部电影的时光。这则新闻成为创作的导火索，他最初只是想写一篇关于童年放风筝的短文，却越写越深，最终延伸出关于背叛、愧疚、流亡与救赎的完整故事。</p>
+        <p>小说中很多细节来自他的亲身经历，比如流亡美国的生活落差、阿富汗的民俗风情、普什图与哈扎拉的民族矛盾等，带有强烈的自传色彩。</p>
+      </div>
+      <figure class="reveal" style="border-radius:14px;overflow:hidden;box-shadow:var(--shadow)">
+        <img src="assets/village.jpg" alt="水彩画：两个孩子奔跑在乡村街巷，空中飘着风筝">
+      </figure>
+    </div>
+
+    <div class="tl-wrap reveal">
+      <div class="tl-head">时代历史背景 · 阿富汗最动荡的三十年</div>
+      <p style="font-size:14px;color:var(--ink-soft);margin-bottom:26px">小说的时间线覆盖了阿富汗现代史上最动荡的三十年，个人命运始终与国家变迁紧密绑定。</p>
+      <div class="timeline">
+        <div class="tl-row">
+          <div class="tl-time">60–70 年代</div>
+          <div class="tl-axis"><span class="tl-dot"></span></div>
+          <div class="tl-body"><h5>君主制末期 · 最后的“黄金时代”</h5><p>查希尔国王统治后期，喀布尔相对和平繁荣，是阿富汗最后的“黄金时代”，但社会中已暗藏民族、阶级与宗教矛盾。</p></div>
+        </div>
+        <div class="tl-row">
+          <div class="tl-time">1973 年</div>
+          <div class="tl-axis"><span class="tl-dot"></span></div>
+          <div class="tl-body"><h5>达乌德政变</h5><p>达乌德发动政变推翻君主制，阿富汗政治走向动荡。</p></div>
+        </div>
+        <div class="tl-row">
+          <div class="tl-time">1979 年</div>
+          <div class="tl-axis"><span class="tl-dot"></span></div>
+          <div class="tl-body"><h5>苏联入侵阿富汗</h5><p>开启了长达十年的战争，无数平民流离失所，大量精英阶层流亡海外，阿富汗从此陷入长期动荡。</p></div>
+        </div>
+        <div class="tl-row">
+          <div class="tl-time">90 年代后</div>
+          <div class="tl-axis"><span class="tl-dot"></span></div>
+          <div class="tl-body"><h5>塔利班统治时期</h5><p>苏联撤军后阿富汗陷入内战，塔利班掌权后推行极端统治，社会秩序崩塌，文化被摧毁，人民生活在苦难之中。</p></div>
+        </div>
+      </div>
+      <figure style="border-radius:14px;overflow:hidden;box-shadow:var(--shadow);margin-top:26px">
+        <img src="assets/bazaar.jpg" alt="水彩画：阿富汗市集，男子与少年并肩而立">
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 主要人物 ===== -->
+<section id="characters">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="kicker">四 · 主要人物</span>
+      <h2 class="title">没有绝对的好人与坏人，<em>只有真实的人</em></h2>
+      <p class="sec-sub">小说塑造了一群有血有肉的人物：自私却终能悔改的阿米尔，忠诚善良的哈桑，伟岸却藏着秘密的父亲，以及指引救赎之路的拉辛汗。</p>
+    </div>
+    <div class="banner reveal">
+      <img src="assets/characters.jpg" alt="黄昏插画：孩童奔跑着牵引风筝，成年男子抬手望向天空">
+      <div class="banner-cap">六个灵魂，一段救赎</div>
+    </div>
+    <div class="char-grid">
+      <div class="char-card reveal">
+        <span class="char-idx">01</span>
+        <h4>阿米尔</h4>
+        <div class="en">Amir</div>
+        <span class="role">叙事者 · 核心主人公</span>
+        <p>文学史上极具真实感的“非完美主角”。童年敏感自卑、懦弱自私，极度渴望父爱，因嫉妒和胆怯背叛了哈桑。成年后背负愧疚生活，在拉辛汗的指引下重返阿富汗，从逃避过错到主动直面创伤，冒着生命危险营救索拉博，最终完成自我救赎。</p>
+        <p>他代表了每一个在愧疚中挣扎的普通人，也证明了人可以通过主动弥补过错，获得灵魂的重生。</p>
+      </div>
+      <div class="char-card reveal">
+        <span class="char-idx">02</span>
+        <h4>哈桑</h4>
+        <div class="en">Hassan</div>
+        <span class="role">“善”的化身</span>
+        <p>阿米尔的仆人与同父异母弟弟。忠诚、勇敢、善良、宽容，即使被背叛、被诬陷，也始终对阿米尔心怀善意。他学会的第一个词是“阿米尔”，用一生践行了“为你，千千万万遍”的承诺。</p>
+        <p>作为哈扎拉人，他从出生起就承受民族与阶级歧视，至死不知真实身世，最终为守护老宅死于塔利班枪下——是纯粹友谊、无条件爱与苦难中人性光辉的象征。</p>
+      </div>
+      <div class="char-card reveal">
+        <span class="char-idx">03</span>
+        <h4>爸爸</h4>
+        <div class="en">Baba</div>
+        <span class="role">复杂而立体</span>
+        <p>阿米尔的父亲，喀布尔著名的富商。刚毅、正直、有男子气概，乐善好施，出资修建孤儿院，在当地威望极高，是传统阿富汗男性的典范。</p>
+        <p>他与阿里的妻子生下哈桑，一生都在为自己的过错赎罪——通过施舍穷人、修建孤儿院来弥补愧疚。从名流沦为美国底层工人，却依然保持尊严与骨气，他的人生同样是一条隐秘的救赎之路。</p>
+      </div>
+      <div class="char-card reveal">
+        <span class="char-idx">04</span>
+        <h4>拉辛汗</h4>
+        <div class="en">Rahim Khan</div>
+        <span class="role">精神导师</span>
+        <p>父亲的挚友与生意伙伴，温和睿智，知晓所有秘密，是连接阿米尔与过去的桥梁。他既理解阿米尔的懦弱，也没有指责他的过错，而是用一句“这里有再次成为好人的路”温柔地指引他走上救赎之路，是推动故事转折的关键人物。</p>
+      </div>
+      <div class="char-card reveal">
+        <span class="char-idx">05</span>
+        <h4>阿塞夫</h4>
+        <div class="en">Assef</div>
+        <span class="role">主要反派</span>
+        <p>普什图族富家子弟，后来成为塔利班头目。性格残暴、崇尚暴力，奉行极端民族主义，极端歧视哈扎拉人。童年时欺凌哈桑，成年后成为塔利班的施暴者，是战争与极端主义催生的人性之恶的代表，也是阿米尔救赎之路上必须直面的“过去的阴影”。</p>
+      </div>
+      <div class="char-card reveal">
+        <span class="char-idx">06</span>
+        <h4>索拉博</h4>
+        <div class="en">Sohrab</div>
+        <span class="role">希望与传承的象征</span>
+        <p>哈桑的儿子，经历了父母双亡、被虐待的苦难，沉默寡言、内心封闭。阿米尔对他的营救，既是对哈桑的弥补，也是将哈桑的爱与善良延续下去。结尾他的淡淡微笑，暗示着创伤的缓慢愈合与未来的可能性。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 主题思想 ===== -->
+<section id="themes" style="background:var(--paper-deep)">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="kicker">五 · 主题思想</span>
+      <h2 class="title">一只风筝，<em>五种命运的重量</em></h2>
+      <p class="sec-sub">风筝在书中是童年的快乐与自由，是父爱与认可，是忠诚与奉献，也是最终的救赎与希望。</p>
+    </div>
+    <div class="banner reveal">
+      <img src="assets/redemption.jpg" alt="两个男孩相互依偎，蓝天雪山，风筝高悬">
+      <div class="banner-cap">“There is a way to be good again.”</div>
+    </div>
+    <div class="reveal">
+      <div class="theme-row">
+        <div class="theme-no">01</div>
+        <div>
+          <h4>背叛与救赎 · 核心主题</h4>
+          <p>小说最核心的脉络是阿米尔的“背叛—愧疚—救赎”之路。胡赛尼通过这个故事探讨了人性的过错与弥补：背叛往往源于一瞬间的怯懦，但救赎却需要漫长的勇气与行动。救赎不是抹去过去的错误，也不是获得他人的原谅，而是直面愧疚，用实际行动承担责任，最终与自己和解。父子两代人的救赎（父亲的暗中赎罪、阿米尔的公开弥补）也共同印证了：良知的重量会推动人走上自我修正的道路。</p>
+        </div>
+      </div>
+      <div class="theme-row">
+        <div class="theme-no">02</div>
+        <div>
+          <h4>人性的复杂与成长</h4>
+          <p>小说没有塑造绝对的好人或坏人：阿米尔自私却终能悔改，父亲伟岸却藏着秘密，哈桑完美却也有其局限性。它写出了人性的真实与复杂——人都有懦弱、自私的一面，但这并不妨碍人最终选择善良与勇敢。阿米尔的成长，正是从一个逃避的男孩成长为一个有担当的男人的过程。成长的本质，就是学会直面自己的不堪，并为之负责。</p>
+        </div>
+      </div>
+      <div class="theme-row">
+        <div class="theme-no">03</div>
+        <div>
+          <h4>战争对个体命运的碾压</h4>
+          <p>小说将个人故事置于阿富汗三十年战乱的宏大背景下，展现了战争对普通人生活的毁灭性摧毁。曾经繁华的喀布尔变成残垣断壁，温馨的家庭支离破碎，无数人流离失所。风筝从自由的童年玩具，变成被禁止的禁忌，正是阿富汗命运的缩影。胡赛尼用个体的悲欢，折射出整个民族的苦难，让读者看到战争背后一个个具体的、有血有肉的生命，而不是新闻里冰冷的数字。</p>
+        </div>
+      </div>
+      <div class="theme-row">
+        <div class="theme-no">04</div>
+        <div>
+          <h4>阶级与民族歧视的批判</h4>
+          <p>通过哈桑的命运，小说深刻批判了阿富汗社会根深蒂固的民族与阶级歧视。哈扎拉人被视为“下等人”，遭受不公与欺凌却无处申诉，哈桑的悲剧本质上是社会压迫的结果。阿米尔最终的救赎，也包含了对这种歧视观念的摒弃——他不再以阶级和民族定义一个人的价值，而是真正将索拉博当作家人，勇敢地对抗周遭的偏见。</p>
+        </div>
+      </div>
+      <div class="theme-row" style="border-bottom:none">
+        <div class="theme-no">05</div>
+        <div>
+          <h4>爱与奉献的传承</h4>
+          <p>“为你，千千万万遍”这句话在书中出现了三次：哈桑对阿米尔说，阿米尔内心对哈桑说，最后阿米尔对索拉博说。这句话的三次传递，完成了爱与奉献的代际传承。小说探讨了多种情感的深度：哈桑对阿米尔超越阶级的友情与忠诚，父亲对阿米尔深沉却笨拙的爱，阿米尔与索拉雅相濡以沫的爱情，以及最终阿米尔对索拉博的责任与守护。这些情感共同构成了苦难岁月里最珍贵的光亮。</p>
+        </div>
+      </div>
+    </div>
+    <div class="theme-with-img reveal" style="margin-top:44px;background:var(--paper-white);border:1px solid var(--line);border-radius:16px;padding:26px">
+      <figure>
+        <img src="assets/heritage.jpg" alt="小女孩站在沙滩上放风筝，暖色调黄昏">
+      </figure>
+      <div>
+        <h4 style="font-family:var(--serif);font-weight:700;font-size:19px;color:var(--clay-dark);margin-bottom:10px">风筝的传递 · 爱与奉献的代际传承</h4>
+        <p style="color:var(--ink-soft);font-size:15px;line-height:2">哈桑对阿米尔说“为你，千千万万遍”，阿米尔内心对哈桑说，最后阿米尔对索拉博说——这句话的三次传递，完成了爱与奉献的代际传承，也意味着救赎与希望可以在下一代身上延续。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 读书感悟 ===== -->
+<section id="reflection">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="kicker">六 · 读书感悟</span>
+      <h2 class="title">读完这本书，<em>我们追到了什么</em></h2>
+      <p class="sec-sub">每个人的生命中或许都有过“阿米尔时刻”。这本书告诉我们：愧疚不会因逃避而消失，救赎或许迟到，但永远不会太晚。</p>
+    </div>
+    <div class="banner reveal">
+      <img src="assets/theme-sunset.jpg" alt="橙红黄昏天空，圆月高悬，风筝与孩童剪影">
+      <div class="banner-cap">献给每一个仍在追风筝的人</div>
+    </div>
+    <div class="reflect-grid">
+      <div class="reflect-card reveal">
+        <h4>愧疚是人性的刺，救赎是勇敢的答案</h4>
+        <p>每个人的生命中或许都有过“阿米尔时刻”：因为胆怯、自私或虚荣，做出了让自己愧疚的选择，然后用漫长的时间去逃避。但这本书告诉我们，愧疚不会因逃避而消失，只会在心里越埋越深。真正的和解，从来不是等“准备好了”再出发，而是带着恐惧依然选择向前。救赎或许迟到，但永远不会太晚。</p>
+      </div>
+      <div class="reflect-card reveal">
+        <h4>最动人的不是完美的善，而是犯错后的担当</h4>
+        <p>哈桑的忠诚固然令人动容，但阿米尔的救赎才是故事最有力量的部分。他不是天生的英雄，只是一个有弱点的普通人。正因为如此，他最终选择直面过去、承担责任的勇气才更显珍贵。人性的光辉，恰恰体现在认识到自己的渺小与不堪后，依然选择做正确的事。</p>
+      </div>
+      <div class="reflect-card reveal">
+        <h4>时代的尘埃，落在每个人身上都是一座山</h4>
+        <p>读这本书不仅是读一个人的故事，更是读一个民族的伤痛。我们看见战争如何摧毁文明、撕裂生活，看见普通人在时代洪流中的身不由己。它提醒我们，和平不是理所当然的，那些新闻里遥远的战乱背后，是无数个像哈桑、阿米尔一样的人生。</p>
+      </div>
+      <div class="reflect-card reveal">
+        <h4>风筝是永恒的隐喻</h4>
+        <p>风筝在书中有多重象征：它是童年的快乐与自由，是阿米尔渴望的父爱与认可，是哈桑的忠诚与奉献，也是阿米尔最终的救赎与希望。追风筝的过程，就是追逐心中的良知、追逐更好的自己的过程。每个人都在追属于自己的那只风筝，路途中会有犯错、有遗憾，但只要还在跑，就还有希望。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 结尾 ===== -->
+<section class="finale">
+  <img class="finale-bg" src="assets/ending.jpg" alt="黄昏时分，成年男性与小男孩手牵手在草地上眺望红色风筝">
+  <div class="finale-inner">
+    <div class="en">The Kite Runner</div>
+    <h2>追风筝的人</h2>
+    <div class="quote">“为你，千千万万遍。”</div>
+    <p style="margin-top:36px;font-size:15px;line-height:2.1;color:rgba(251,243,228,.9);max-width:620px;margin-left:auto;margin-right:auto">每个人都在追属于自己的那只风筝。路途中会有犯错、有遗憾，但只要还在跑，就还有希望。</p>
+    <div class="note">注：部分内容由豆包工作 AI 生成</div>
+    <a class="back-top" href="#hero">回到顶部</a>
+  </div>
+</section>
+
+<footer>
+  《追风筝的人》全面解析 · 献给每一个仍在追风筝的人
+</footer>
+
+<script>
+// 导航 active 状态
+(function(){
+  var links=[].slice.call(document.querySelectorAll('.nav-links a'));
+  var map={};
+  links.forEach(function(a){map[a.getAttribute('href').slice(1)]=a});
+  var ids=Object.keys(map);
+  var ticking=false;
+  function onScroll(){
+    var y=window.scrollY+120;
+    var cur=ids[0];
+    ids.forEach(function(id){
+      var el=document.getElementById(id);
+      if(el && el.offsetTop<=y) cur=id;
+    });
+    links.forEach(function(a){a.classList.remove('active')});
+    if(map[cur]) map[cur].classList.add('active');
+    ticking=false;
+  }
+  window.addEventListener('scroll',function(){if(!ticking){requestAnimationFrame(onScroll);ticking=true}},{passive:true});
+  onScroll();
+})();
+
+// 滚动渐显
+(function(){
+  var els=[].slice.call(document.querySelectorAll('.reveal'));
+  if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in')});return;}
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(en){
+      if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);}
+    });
+  },{threshold:.12,rootMargin:'0px 0px -40px 0px'});
+  els.forEach(function(e){io.observe(e)});
+})();
+</script>
+</body>
+</html>
